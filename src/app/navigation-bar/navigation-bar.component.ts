@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+
+import * as fromApplicationStore from '../AppStore/appstore.global';
+import * as fromAuthenticationSelectors from '../auth/Store/auth.store.index';
+import { Observable, from } from 'rxjs';
+import { LoggedInUser } from '../auth/models/auth.models';
+
+
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,9 +16,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
 
-  constructor() { }
+  loggedInUserData$: Observable<LoggedInUser>;
+  constructor(
+    private state$: Store<fromApplicationStore.GlobalStore>
+  ) { }
 
   ngOnInit(): void {
+    this.loggedInUserData$ = this.state$.select(fromAuthenticationSelectors.getLoggedInUser);
   }
 
 }

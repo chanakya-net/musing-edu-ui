@@ -4,7 +4,12 @@
       Musing - Edu
     </div>
     <div>
-      <button mat-button color="primary">Welcome</button>
+      <button mat-button *ngIf="loggedInUserData$ | async" [matMenuTriggerFor]="menu">
+        Welcome {{(loggedInUserData$ | async).firstName}}
+      </button>
+      <mat-menu #menu="matMenu">
+        <button type="button" mat-menu-item>Profile Information</button>
+      </mat-menu>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

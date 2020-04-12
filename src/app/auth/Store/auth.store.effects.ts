@@ -47,6 +47,31 @@ export class AuthenticationEffects {
     })
   );
 
+  @Effect()
+  authAutoLogin = this.action$.pipe(
+    ofType(AuthenticationActions.AuthenticationActionsType.USER_AUTO_LOGIN),
+    map(() => {
+      const dataFromToken = this.tokenHandler.getUserDataFromToken();
+      if (dataFromToken == null) {
+        return { type: 'DUMMY' };
+      } else {
+        console.log('executing auto login');
+        const loggedInUserData: LoggedInUser = {
+          firstName: dataFromToken.firstName,
+          contactNumber: dataFromToken.contactNumber,
+          id: dataFromToken.id,
+          mailId: dataFromToken.mailId,
+          lastName: dataFromToken.lastName,
+          roles: dataFromToken.roles,
+          userName: dataFromToken.userName,
+          token: dataFromToken.token
+        };
+        return new AuthenticationActions.UserLoginSuccess(loggedInUserData);
+      }
+    })
+  );
+
+
   handleAuthenticationSuccess(loggedInUserData: LoggedInUser) {
     return new AuthenticationActions.UserLoginSuccess(loggedInUserData);
   }

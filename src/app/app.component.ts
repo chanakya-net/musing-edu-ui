@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import * as fromApplicationStore from './AppStore/appstore.global';
-import * as FromAuthenticationSelector from './auth/Store/auth.store.index'
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { LoggedInUser } from './auth/models/auth.models';
+
+import * as fromApplicationStore from './AppStore/appstore.global';
+import * as fromAuthenticationSelector from './auth/Store/auth.store.index';
+import * as fromAuthenticationActions from './auth/Store/auth.store.actions';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +23,7 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.isLoggedIn$ = this.store.select(FromAuthenticationSelector.getLoggedInUser);
+    this.isLoggedIn$ = this.store.select(fromAuthenticationSelector.getLoggedInUser);
+    this.store.dispatch(new fromAuthenticationActions.UserAutomaticLogIn());
   }
 }

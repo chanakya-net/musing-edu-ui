@@ -19,14 +19,14 @@ export class AuthTokenService {
     if (this.CheckIfTokenValid()) {
       const userData = JSON.parse(localStorage.getItem(this.TOKEN_KEY));
       const data: LoggedInUser = {
-        id: userData.id,
-        userName: userData.userName,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        mailId: userData.mailId,
-        contactNumber: userData.contactNumber,
-        roles: userData.roles,
-        token: userData.token
+        id: userData.payload.id,
+        userName: userData.payload.userName,
+        firstName: userData.payload.firstName,
+        lastName: userData.payload.lastName,
+        mailId: userData.payload.mailId,
+        contactNumber: userData.payload.contactNumber,
+        roles: userData.payload.roles,
+        token: userData.payload.token
       };
       return (data);
     } else {
@@ -52,7 +52,7 @@ export class AuthTokenService {
     try {
       const tokenData = JSON.parse(localStorage.getItem(this.TOKEN_KEY));
       if (tokenData != null) {
-        return !this.tokenHelper.isTokenExpired(tokenData.token);
+        return !this.tokenHelper.isTokenExpired(tokenData.payload.token);
       } else {
         return false;
       }

@@ -52,6 +52,14 @@ export function AuthReducer(state = InitialState, action: FromAuthActions.Authen
         userValidationData: null,
         errorMessage: null
       };
+    case FromAuthActions.AuthenticationActionsType.USER_AUTO_LOGIN:
+      return {
+        ...state,
+        loggedInUserDetails: null,
+        userValidationData: null,
+        isRequestInProgress: false,
+        errorMessage: null
+      };
     default:
       return {
         ...state
