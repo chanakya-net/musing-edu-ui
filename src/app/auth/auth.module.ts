@@ -17,7 +17,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     CommonModule,
     AuthRoutingModule,
-    StoreModule.forFeature('Authentication', fromAuthReducers.AuthenticationReducer)
   ]
 })
 export class AuthModule { }

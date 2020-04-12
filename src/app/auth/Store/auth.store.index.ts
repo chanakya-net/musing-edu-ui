@@ -28,3 +28,8 @@ const getUserValidationData = createSelector(
   getAuthenticationFeatureState,
   state => state.userValidationData
 );
+
+const getErrorMessage = createSelector(
+  getAuthenticationFeatureState,
+  state => state.errorMessage
+);

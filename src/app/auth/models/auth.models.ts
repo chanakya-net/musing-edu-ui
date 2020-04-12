@@ -10,4 +10,5 @@ export interface LoggedInUser {
   mailId: string;
   contactNumber: string;
   roles: string[];
+  token: string;
 }

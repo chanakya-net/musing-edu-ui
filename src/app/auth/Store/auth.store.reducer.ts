@@ -8,12 +8,14 @@ export interface AuthenticationState {
   userValidationData: FromAuthModels.LoginCredentials;
   loggedInUserDetails: FromAuthModels.LoggedInUser;
   isRequestInProgress: boolean;
+  errorMessage: string;
 }
 
 export const InitialState: AuthenticationState = {
   userValidationData: null,
   loggedInUserDetails: null,
-  isRequestInProgress: false
+  isRequestInProgress: false,
+  errorMessage: null
 };
 
 
@@ -22,17 +24,33 @@ export function AuthReducer(state = InitialState, action: FromAuthActions.Authen
     case FromAuthActions.AuthenticationActionsType.USER_LOGIN:
       return {
         ...state,
-        isRequestInProgress: true
+        userValidationData: action.payload,
+        loggedInUserDetails: null,
+        isRequestInProgress: true,
+        errorMessage: null
       };
     case FromAuthActions.AuthenticationActionsType.USER_LOGIN_SUCCESS:
       return {
         ...state,
-        isRequestInProgress: false
+        isRequestInProgress: false,
+        loggedInUserDetails: action.payload,
+        userValidationData: null,
+        errorMessage: null
       };
     case FromAuthActions.AuthenticationActionsType.USER_LOGIN_FAIL:
       return {
         ...state,
-        isRequestInProgress: false
+        isRequestInProgress: false,
+        loggedInUserDetails: null,
+        errorMessage: action.payload.errorMessage
+      };
+    case FromAuthActions.AuthenticationActionsType.USER_LOGOUT:
+      return {
+        ...state,
+        isRequestInProgress: false,
+        loggedInUserDetails: null,
+        userValidationData: null,
+        errorMessage: null
       };
     default:
       return {
