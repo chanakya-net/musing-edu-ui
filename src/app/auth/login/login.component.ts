@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import * as fromApplicationStore from '../../AppStore/appstore.global';
+import * as fromAuthenticationActions from '../Store/auth.store.actions';
+import { Store } from '@ngrx/store';
+import { LoginCredentials } from '../models/auth.models';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +16,9 @@ export class LoginComponent implements OnInit {
   isRequestInProgress = false;
   errorMessage: string = null;
 
-  constructor() { }
+  constructor(
+    private store: Store<fromApplicationStore.GlobalStore>
+  ) { }
 
   ngOnInit(): void {
     this.loginFrom = new FormGroup(
@@ -25,6 +30,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginFrom);
+    console.log(this.loginFrom.value);
+    const authData: LoginCredentials = this.loginFrom.value;
+    this.store.dispatch(new fromAuthenticationActions.UserLogin(authData));
   }
 }

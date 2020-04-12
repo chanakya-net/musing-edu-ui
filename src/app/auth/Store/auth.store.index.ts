@@ -14,22 +14,22 @@ export const AuthenticationReducer: ActionReducerMap<AuthenticationStore> = {
 
 const getAuthenticationFeatureState = createFeatureSelector<fromAuthStore.AuthenticationState>('Authentication');
 
-const getLoggedInUser = createSelector(
+export const getLoggedInUser = createSelector(
   getAuthenticationFeatureState,
   state => state.loggedInUserDetails
 );
 
-const getRequestInProgress = createSelector(
+export const getRequestInProgress = createSelector(
   getAuthenticationFeatureState,
   state => state.isRequestInProgress
 );
 
-const getUserValidationData = createSelector(
+export const getUserValidationData = createSelector(
   getAuthenticationFeatureState,
   state => state.userValidationData
 );
 
-const getErrorMessage = createSelector(
+export const getErrorMessage = createSelector(
   getAuthenticationFeatureState,
   state => state.errorMessage
 );

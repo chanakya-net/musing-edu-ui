@@ -1,5 +1,5 @@
 <mat-drawer-container>
-  <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+  <mat-drawer mode="side" opened *ngIf="isUserLoggedIn$ | async ">Drawer content</mat-drawer>
   <mat-drawer-content>
     <div>
       <router-outlet></router-outlet>

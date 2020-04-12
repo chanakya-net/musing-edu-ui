@@ -1,5 +1,5 @@
 <div class="body-container">
-  <app-navigation-bar>
+  <app-navigation-bar *ngIf="isLoggedIn$ | async">
   </app-navigation-bar>
   <app-main-area>
   </app-main-area>

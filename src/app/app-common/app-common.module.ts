@@ -9,6 +9,10 @@ import { DialogsComponent } from './dialogs/dialogs.component';
   declarations: [LoadingComponent, DialogsComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    LoadingComponent,
+    DialogsComponent
   ]
 })
 export class AppCommonModule { }

@@ -7,13 +7,13 @@
       <form [formGroup]="loginFrom" (ngSubmit)="onSubmit()" class="login-form">
         <mat-form-field>
           <mat-label>User Name</mat-label>
-          <input class="input-text" id="username" name="username" matInput placeholder="Please Enter User Name"
+          <input class="input-text" id="username" name="username" matInput placeholder="Please enter username"
             formControlName="userName">
         </mat-form-field>
         <mat-form-field>
           <mat-label>Password</mat-label>
           <input id="password" name="password" type="password" formControlName="password" matInput
-            placeholder="Enter your password">
+            placeholder="Please enter password">
         </mat-form-field>
         <button mat-raised-button color="accent" type="submit" [disabled]="!loginFrom.valid">Login</button>
       </form>
