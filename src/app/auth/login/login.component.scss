@@ -1,0 +1,37 @@
+.login-form
+{
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  }
+
+mat-card-header{
+  color: white;
+  background-color: #3949ab;
+  font-size: 1rem;
+  justify-content: left;
+  font-weight: lighter;
+  width: 100%;
+}
+mat-card-title{
+  justify-content: stretch;
+  padding-top: .4rem;
+}
+mat-card{
+  padding: .2rem;
+  margin: 0;
+}
+mat-card-content{
+  padding: .5rem;
+  margin: .4rem;
+}
+
+.div-router-container{
+  display: flex;
+  height: 97.5vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right bottom, rgba(28, 202, 233, 0.4), rgba(14, 203, 236, 0.4)), url('../../../assets/back1.jpg') no-repeat center center/cover;
+}
+
+
