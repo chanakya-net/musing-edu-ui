@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardActiveGuard } from './dashboard/Guard/dashboard.activate.guard';
 
@@ -8,6 +7,7 @@ import { DashboardActiveGuard } from './dashboard/Guard/dashboard.activate.guard
 
 const routes: Routes = [
   { path: 'login', loadChildren: () => import('./auth/auth.module').then(l => l.AuthModule) },
+  {path: 'institute', loadChildren: () => import('./institute/institute.module').then(m => m.InstituteModule)},
   { path: 'dashboard', component: DashboardComponent, canActivate: [DashboardActiveGuard] },
   { path: '**', redirectTo: 'dashboard' }
 ];

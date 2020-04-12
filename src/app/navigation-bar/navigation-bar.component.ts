@@ -4,7 +4,8 @@ import { Store } from '@ngrx/store';
 
 import * as fromApplicationStore from '../AppStore/appstore.global';
 import * as fromAuthenticationSelectors from '../auth/Store/auth.store.index';
-import { Observable, from } from 'rxjs';
+import * as fromAuthenticationActions from '../auth/Store/auth.store.actions';
+import { Observable } from 'rxjs';
 import { LoggedInUser } from '../auth/models/auth.models';
 
 
@@ -18,11 +19,14 @@ export class NavigationBarComponent implements OnInit {
 
   loggedInUserData$: Observable<LoggedInUser>;
   constructor(
-    private state$: Store<fromApplicationStore.GlobalStore>
+    private store$: Store<fromApplicationStore.GlobalStore>
   ) { }
 
   ngOnInit(): void {
-    this.loggedInUserData$ = this.state$.select(fromAuthenticationSelectors.getLoggedInUser);
+    this.loggedInUserData$ = this.store$.select(fromAuthenticationSelectors.getLoggedInUser);
   }
 
+  onLogout(){
+    this.store$.dispatch(new fromAuthenticationActions.UserLogout());
+  }
 }

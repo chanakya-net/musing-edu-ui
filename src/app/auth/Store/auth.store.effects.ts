@@ -36,17 +36,6 @@ export class AuthenticationEffects {
     })
   );
 
-  @Effect({ dispatch: false })
-  loggedInUser = this.action$.pipe(
-    ofType(AuthenticationActions.AuthenticationActionsType.USER_LOGIN_SUCCESS),
-    tap((loggedInUserData: AuthenticationActions.UserLoginSuccess) => {
-      if (loggedInUserData) {
-        this.tokenHandler.SaveUserToken(loggedInUserData);
-        this.router.navigate(['/dashboard']);
-      }
-    })
-  );
-
   @Effect()
   authAutoLogin = this.action$.pipe(
     ofType(AuthenticationActions.AuthenticationActionsType.USER_AUTO_LOGIN),
@@ -71,6 +60,25 @@ export class AuthenticationEffects {
     })
   );
 
+  @Effect({ dispatch: false })
+  loggedInUser = this.action$.pipe(
+    ofType(AuthenticationActions.AuthenticationActionsType.USER_LOGIN_SUCCESS),
+    tap((loggedInUserData: AuthenticationActions.UserLoginSuccess) => {
+      if (loggedInUserData) {
+        this.tokenHandler.SaveUserToken(loggedInUserData);
+        this.router.navigate(['/dashboard']);
+      }
+    })
+  );
+
+  @Effect({ dispatch: false })
+  logout = this.action$.pipe(
+    ofType(AuthenticationActions.AuthenticationActionsType.USER_LOGOUT),
+    tap((loggedInUserData: AuthenticationActions.UserLogout) => {
+      this.tokenHandler.logOut();
+      this.router.navigate(['/login']);
+    })
+  );
 
   handleAuthenticationSuccess(loggedInUserData: LoggedInUser) {
     return new AuthenticationActions.UserLoginSuccess(loggedInUserData);

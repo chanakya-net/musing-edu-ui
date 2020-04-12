@@ -1,5 +1,23 @@
 <mat-drawer-container>
-  <mat-drawer mode="side" opened *ngIf="isUserLoggedIn$ | async ">Drawer content</mat-drawer>
+  <mat-drawer mode="side" opened *ngIf="isUserLoggedIn$ | async ">
+    <div class="side-menu">
+      <a [routerLink]="['/institute']">
+        Institute 1
+      </a>
+      <a [routerLink]="['/institute']">
+        Institute 2
+      </a>
+      <a [routerLink]="['/institute']">
+        Institute 3
+      </a>
+      <a [routerLink]="['/institute']">
+        Institute 4
+      </a>
+      <a [routerLink]="['/institute']">
+        Institute 5
+      </a>
+    </div>
+  </mat-drawer>
   <mat-drawer-content>
     <div>
       <router-outlet></router-outlet>

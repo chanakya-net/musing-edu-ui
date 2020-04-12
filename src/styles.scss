@@ -19,3 +19,10 @@ body { font-family: Roboto, "Helvetica Neue", sans-serif; }
   flex-direction: column;
   height: 100%;
 }
+
+.div-router-container-main-area{
+  display: flex;
+  height: 91vh;
+  align-items: center;
+  justify-content: center;
+}
