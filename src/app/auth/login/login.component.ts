@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { LoginCredentials } from '../models/auth.models';
 import * as fromApplicationStore from '../../AppStore/appstore.global';
 import * as fromAuthenticationActions from '../Store/auth.store.actions';
-import { Store } from '@ngrx/store';
-import { LoginCredentials } from '../models/auth.models';
+import * as fromAuthenticationSelector from '../Store/auth.store.index';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +16,8 @@ import { LoginCredentials } from '../models/auth.models';
 export class LoginComponent implements OnInit {
 
   loginFrom: FormGroup;
-  isRequestInProgress = false;
+  isRequestInProgress$: Observable<boolean>;
+
   errorMessage: string = null;
 
   constructor(
@@ -21,6 +25,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isRequestInProgress$ = this.store.select(fromAuthenticationSelector.getRequestInProgress);
     this.loginFrom = new FormGroup(
       {
         userName: new FormControl(null, Validators.required),
@@ -30,7 +35,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginFrom.value);
     const authData: LoginCredentials = this.loginFrom.value;
     this.store.dispatch(new fromAuthenticationActions.UserLogin(authData));
   }

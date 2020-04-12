@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
-import { StoreModule } from '@ngrx/store';
-import * as fromAuthReducers from './Store/auth.store.index';
 import { MaterialModules } from '../material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { AppCommonModule } from '../app-common/app-common.module';
 
 
 
@@ -17,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     CommonModule,
     AuthRoutingModule,
+    AppCommonModule
   ]
 })
 export class AuthModule { }
