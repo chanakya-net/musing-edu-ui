@@ -4,7 +4,7 @@
       Musing - Edu
     </div>
     <div>
-      <button mat-button *ngIf="loggedInUserData$ | async" [matMenuTriggerFor]="menu">
+      <button mat-flat-button color="accent" *ngIf="loggedInUserData$ | async" [matMenuTriggerFor]="menu">
         Welcome {{(loggedInUserData$ | async).firstName}}
       </button>
       <mat-menu #menu="matMenu">

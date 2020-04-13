@@ -16,12 +16,14 @@ import { Institute } from '../models/institute.model';
 export class SetupDisplayComponent implements OnInit {
 
   currentInstitute$: Observable<Institute>;
+  isRequestInProgress$: Observable<boolean>;
 
   constructor(private store$: Store<fromInstituteReducers.InstituteState>) { }
 
   ngOnInit(): void {
     this.store$.dispatch(new fromInstituteActions.SelectInstitute());
     this.currentInstitute$ = this.store$.select(fromInstituteSelectors.GetCurrentInstitute);
+    this.isRequestInProgress$ = this.store$.select(fromInstituteSelectors.GetHttpRequestProgress);
   }
 
 }

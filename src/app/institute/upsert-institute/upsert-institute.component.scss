@@ -1,0 +1,32 @@
+.div-institute-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.div-institute-main{
+  display: flex;
+  width: 70%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-institute-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height: 100%;
+}
+mat-card{
+width: 80%;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  }
+

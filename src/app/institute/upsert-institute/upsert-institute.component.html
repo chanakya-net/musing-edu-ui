@@ -1,1 +1,37 @@
-<p>upsert-institute works!</p>
+<div class="div-router-container-main-area">
+  <app-loading *ngIf="(isRequestInProgress$|async)"></app-loading>
+  <div *ngIf="!(isRequestInProgress$|async)" class="div-institute-container">
+    <div class="div-institute-main">
+      <mat-card tabindex=0>
+        <mat-card-header>
+          <mat-card-title>Institute Details</mat-card-title>
+          <mat-card-subtitle>Profile</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]=" instituteForm" class="login-form">
+            <mat-form-field>
+              <mat-label>User Name</mat-label>
+              <input class="input-text" id="username" name="username" matInput placeholder="Please enter username">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input id="password" name="password" type="password" matInput placeholder="Please enter password">
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent">Update</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="div-institute-logo">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Institute Logo</mat-card-title>
+          <mat-card-subtitle>Motto of the school</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="../../../assets/school.png" alt="logo of institute">
+      </mat-card>
+    </div>
+  </div>
+</div>

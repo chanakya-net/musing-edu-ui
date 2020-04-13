@@ -5,9 +5,9 @@ import { UpsertInstituteComponent } from './upsert-institute/upsert-institute.co
 
 
 const routes: Routes = [
-  {path: 'dash', component: SetupDisplayComponent},
-  {path: '', redirectTo: 'dash', pathMatch: 'full'},
-  {path: 'upsertInstitute', component: UpsertInstituteComponent}
+  { path: 'dash', component: SetupDisplayComponent },
+  { path: '', redirectTo: 'dash', pathMatch: 'full' },
+  { path: 'edit', component: UpsertInstituteComponent }
 ];
 
 @NgModule({
