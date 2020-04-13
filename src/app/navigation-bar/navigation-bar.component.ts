@@ -26,7 +26,7 @@ export class NavigationBarComponent implements OnInit {
     this.loggedInUserData$ = this.store$.select(fromAuthenticationSelectors.getLoggedInUser);
   }
 
-  onLogout(){
+  onLogout() {
     this.store$.dispatch(new fromAuthenticationActions.UserLogout());
   }
 }

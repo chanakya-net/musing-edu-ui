@@ -8,15 +8,11 @@ export enum InstituteActionsType {
 
   UPDATE_INSTITUTE = '[Institute] Update',
   UPDATE_INSTITUTE_SUCCESS = '[Institute] Update Success',
-  UPDATE_INSTITUTE_FAIL = '[Institute] Update Success',
+  UPDATE_INSTITUTE_FAIL = '[Institute] Update Fail',
 
-  SELECT_INSTITUTE_BY_ID = '[Institute] Select By Id',
-  SELECT_INSTITUTE_BY_ID_SUCCESS = '[Institute] Select By Id Success',
-  SELECT_INSTITUTE_BY_ID_FAIL = '[Institute] Select By Id Fail',
-
-  SELECT_INSTITUTE_ALL = '[Institute] Select All',
-  SELECT_INSTITUTE_ALL_SUCCESS = '[Institute] Select All Success',
-  SELECT_INSTITUTE_ALL_Fail = '[Institute] Select All Fail'
+  SELECT_INSTITUTE = '[Institute] Select',
+  SELECT_INSTITUTE_SUCCESS = '[Institute] Select Success',
+  SELECT_INSTITUTE_FAIL = '[Institute] Select Fail'
 
 }
 
@@ -59,40 +55,21 @@ export class UpdateInstituteFail implements Action {
 }
 
 
-export class SelectInstituteById implements Action {
-  readonly type = InstituteActionsType.SELECT_INSTITUTE_BY_ID;
-  constructor(
-    public payload: number
-  ) { }
+export class SelectInstitute implements Action {
+  readonly type = InstituteActionsType.SELECT_INSTITUTE;
 }
 
-export class SelectInstituteByIdSuccess implements Action {
-  readonly type = InstituteActionsType.SELECT_INSTITUTE_BY_ID_SUCCESS;
+export class SelectInstituteSuccess implements Action {
+  readonly type = InstituteActionsType.SELECT_INSTITUTE_SUCCESS;
   constructor(
     public payload: Institute
   ) { }
 }
 
-export class SelectInstituteByIdFail implements Action {
-  readonly type = InstituteActionsType.SELECT_INSTITUTE_BY_ID_FAIL;
+export class SelectInstituteFail implements Action {
+  readonly type = InstituteActionsType.SELECT_INSTITUTE_FAIL;
   constructor(public payload: string) { }
 }
-
-
-export class SelectInstituteAll implements Action {
-  readonly type = InstituteActionsType.SELECT_INSTITUTE_ALL;
-}
-
-export class SelectInstituteAllSuccess implements Action {
-  readonly type = InstituteActionsType.SELECT_INSTITUTE_ALL_SUCCESS;
-  constructor(public payload: Institute[]) { }
-}
-
-export class SelectInstituteAllFail implements Action {
-  readonly type = InstituteActionsType.SELECT_INSTITUTE_ALL_Fail;
-  constructor(public payload: string) { }
-}
-
 
 export type InstituteActions =
   | AddInstitute
@@ -101,9 +78,6 @@ export type InstituteActions =
   | UpdateInstitute
   | UpdateInstituteSuccess
   | UpdateInstituteFail
-  | SelectInstituteById
-  | SelectInstituteByIdSuccess
-  | SelectInstituteByIdFail
-  | SelectInstituteAll
-  | SelectInstituteAllSuccess
-  | SelectInstituteAllFail;
+  | SelectInstitute
+  | SelectInstituteSuccess
+  | SelectInstituteFail;
