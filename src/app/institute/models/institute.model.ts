@@ -10,6 +10,5 @@ export interface Institute {
   contactNumbers: string;
   mailId: string;
   establishedOn: string;
-  isCoEd: boolean;
   allowedGender: AcceptedGender;
 }

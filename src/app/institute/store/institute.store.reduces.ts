@@ -40,7 +40,6 @@ export function InstituteReducer(state = initialState, action: fromInstituteActi
     case fromInstituteActions.InstituteActionsType.UPDATE_INSTITUTE_FAIL:
       return {
         ...state,
-        currentSelectedInstitute: null,
         errorMessage: action.payload,
         isRequestInProgress: false
       };

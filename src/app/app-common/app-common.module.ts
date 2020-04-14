@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { LoadingComponent } from './loading/loading.component';
 import { DialogsComponent } from './dialogs/dialogs.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EnumToArrayPipe } from './pipes/pipe.enum.to.array';
 
 
 
 @NgModule({
-  declarations: [LoadingComponent, DialogsComponent],
+  declarations: [LoadingComponent,
+    DialogsComponent,
+    EnumToArrayPipe],
   imports: [
     CommonModule,
     ReactiveFormsModule
@@ -15,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     LoadingComponent,
     DialogsComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EnumToArrayPipe
   ]
 })
 export class AppCommonModule { }

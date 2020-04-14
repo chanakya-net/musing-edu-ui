@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
 
   loginFrom: FormGroup;
   isRequestInProgress$: Observable<boolean>;
-
   errorMessage: string = null;
 
   constructor(

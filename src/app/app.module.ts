@@ -19,13 +19,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavigationBarComponent,
     FooterBarComponent,
     MainAreaComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     HttpClientModule,

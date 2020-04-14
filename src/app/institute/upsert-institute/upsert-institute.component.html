@@ -2,25 +2,51 @@
   <app-loading *ngIf="(isRequestInProgress$|async)"></app-loading>
   <div *ngIf="!(isRequestInProgress$|async)" class="div-institute-container">
     <div class="div-institute-main">
-      <mat-card tabindex=0>
+      <mat-card tabindex=0 class="mat-elevation-z8">
         <mat-card-header>
-          <mat-card-title>Institute Details</mat-card-title>
-          <mat-card-subtitle>Profile</mat-card-subtitle>
+          <mat-card-title>{{instituteData.name}}</mat-card-title>
+          <mat-card-subtitle>Established on:- {{instituteData.establishedOn | date:'MMM-yyyy'}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <form [formGroup]=" instituteForm" class="login-form">
+          <form [formGroup]="instituteForm" (ngSubmit)="onSubmit()">
             <mat-form-field>
-              <mat-label>User Name</mat-label>
-              <input class="input-text" id="username" name="username" matInput placeholder="Please enter username">
+              <mat-label>Address</mat-label>
+              <input id=" address" name="address" matInput placeholder="Please enter address."
+                formControlName="address">
             </mat-form-field>
             <mat-form-field>
-              <mat-label>Password</mat-label>
-              <input id="password" name="password" type="password" matInput placeholder="Please enter password">
+              <mat-label>City</mat-label>
+              <input id="city" name="city" matInput placeholder="Please enter city." formControlName="city">
             </mat-form-field>
+            <mat-form-field>
+              <mat-label>Pin</mat-label>
+              <input id="pin" name="pin" matInput placeholder="Please enter pin code." formControlName="pin">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Contact Number</mat-label>
+              <input id="contactNumbers" name="contactNumbers" matInput placeholder="Please enter contact number."
+                formControlName="contactNumbers">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Website</mat-label>
+              <input id="website" name="website" matInput placeholder="Please enter website url."
+                formControlName="website">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input id="mailId" name="mailId" matInput placeholder="Please enter email id." formControlName="mailId">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="Allowed Gender in institute" [value]="instituteData.allowedGender"
+                formControlName="allowedGender">
+                <mat-option *ngFor="let item of genders | enumToArray" [value]="item.key">{{item.value}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-raised-button type="submit" color="accent" [disabled]="!instituteForm.valid">Update</button>
           </form>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="accent">Update</button>
         </mat-card-actions>
       </mat-card>
     </div>

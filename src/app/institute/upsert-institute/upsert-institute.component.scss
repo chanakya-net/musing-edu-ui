@@ -11,6 +11,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  min-width: 400px;
 }
 
 .div-institute-logo{
@@ -20,13 +21,19 @@
   width: 30%;
   height: 100%;
 }
+
 mat-card{
 width: 80%;
+min-width: 300px;
 }
 
 form{
   display: flex;
   flex-direction: column;
-  min-width: 400px;
+  min-width: 300px;
+  }
+
+  input{
+    min-width: 300px;
   }
 

@@ -1,6 +1,6 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { switchMap, catchError, map } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { of, from } from 'rxjs';
 
 import * as fromActions from './institute.store.actions';
 import { InstituteHttpService } from '../service/institute-http.service';
@@ -38,13 +38,39 @@ export class InstituteEffects {
     )
   );
 
+  @Effect()
+  updateInstitute = this.actions$.pipe(
+    ofType(fromActions.InstituteActionsType.UPDATE_INSTITUTE),
+    switchMap(
+      (instituteData: fromActions.UpdateInstitute) => {
+        return this.instituteHttpService.updateInstitute(instituteData.payload).pipe(
+          map(
+            res => {
+              return this.handleUpdateInstituteSuccess(res);
+            }
+          ), catchError(err => {
+            return this.handleUpdateInstituteFail(err);
+          })
+        );
+      }
+    )
+  );
+
+
+
+
   handleSelectInstituteSuccess(data: Institute) {
     return new fromActions.SelectInstituteSuccess(data);
   }
   handleSelectInstituteFail(error: HttpResponse<any>) {
-
     return of(new fromActions.SelectInstituteFail('Some Error Message'));
   }
 
-}
+  handleUpdateInstituteSuccess(data: Institute) {
+    return new fromActions.UpdateInstituteSuccess(data);
+  }
 
+  handleUpdateInstituteFail(error: HttpResponse<any>) {
+    return of(new fromActions.UpdateInstituteFail('Some error message'));
+  }
+}
