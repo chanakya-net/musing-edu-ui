@@ -52,7 +52,7 @@ export class UpsertInstituteComponent implements OnInit {
         contactNumbers: [this.instituteData.contactNumbers, Validators.required],
         mailId: [this.instituteData.mailId, Validators.required],
         website: [this.instituteData.website, Validators.required],
-        allowedGender: [this.instituteData.allowedGender, Validators.required]
+        allowedGender: [this.instituteData.allowedGender.toString(), Validators.required]
       }
     );
   }

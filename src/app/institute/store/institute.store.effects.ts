@@ -63,14 +63,17 @@ export class InstituteEffects {
     return new fromActions.SelectInstituteSuccess(data);
   }
   handleSelectInstituteFail(error: HttpResponse<any>) {
+    console.log(error);
     return of(new fromActions.SelectInstituteFail('Some Error Message'));
   }
 
   handleUpdateInstituteSuccess(data: Institute) {
+
     return new fromActions.UpdateInstituteSuccess(data);
   }
 
   handleUpdateInstituteFail(error: HttpResponse<any>) {
+    console.log(error);
     return of(new fromActions.UpdateInstituteFail('Some error message'));
   }
 }

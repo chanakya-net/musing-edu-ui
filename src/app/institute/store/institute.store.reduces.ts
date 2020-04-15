@@ -22,7 +22,6 @@ export function InstituteReducer(state = initialState, action: fromInstituteActi
     case fromInstituteActions.InstituteActionsType.UPDATE_INSTITUTE:
       return {
         ...state,
-        currentSelectedInstitute: null,
         isRequestInProgress: true,
         errorMessage: null
       };

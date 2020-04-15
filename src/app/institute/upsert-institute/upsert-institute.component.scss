@@ -1,9 +1,25 @@
 .div-institute-container{
   display: flex;
-  height: 100%;
+  height: 70%;
   width: 100%;
   align-items: center;
 }
+
+.div-institute-service-container{
+  display: flex;
+  height: 30%;
+  width: 100%;
+  background-color: rgba($color: #a12020, $alpha: 1.0);
+  align-items: center;
+}
+
+.div-control-container{
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .div-institute-main{
   display: flex;

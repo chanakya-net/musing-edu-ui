@@ -1,5 +1,5 @@
 export enum AcceptedGender {
-  Male,
+  Male = 1,
   Female,
   All
 }

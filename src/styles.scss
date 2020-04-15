@@ -22,7 +22,8 @@ body { font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .div-router-container-main-area{
   display: flex;
-  height: 91vh;
+  height: 90vh;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
