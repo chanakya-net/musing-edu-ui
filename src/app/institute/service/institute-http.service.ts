@@ -28,7 +28,7 @@ export class InstituteHttpService {
   }
 
   selectAllInstituteServices(): Observable<Service[]> {
-    return this.http.get<Service[]>(environment.baseUrl + 'api/Institute/services');
+    return this.http.get<Service[]>(environment.baseUrl + 'api/Institute/service');
   }
 
 }
