@@ -12,3 +12,8 @@ export interface Institute {
   establishedOn: string;
   allowedGender: AcceptedGender;
 }
+
+export interface Service {
+  id: number;
+  serviceName: string;
+}

@@ -1,15 +1,14 @@
 .div-institute-container{
   display: flex;
-  height: 70%;
+  height: 65%;
   width: 100%;
   align-items: center;
 }
 
 .div-institute-service-container{
   display: flex;
-  height: 30%;
+  height: 25%;
   width: 100%;
-  background-color: rgba($color: #a12020, $alpha: 1.0);
   align-items: center;
 }
 
@@ -48,8 +47,10 @@ form{
   flex-direction: column;
   min-width: 300px;
   }
-
   input{
     min-width: 300px;
   }
 
+  .mat-card-header{
+    width: 95%;
+  }

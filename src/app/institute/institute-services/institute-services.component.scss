@@ -4,23 +4,35 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  background-color: aquamarine;
 }
 
 .div-instituteServices-add{
-  width: 40%;
+  width: 45%;
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: center;
-  background-color: cadetblue;
 }
 
 .div-instituteServices-display{
-  width: 50%;
+  width: 45%;
   display: flex;
   height: 100%;
   align-items: center;
+  background-color: lightsalmon;
   justify-content: center;
-  background-color: darkcyan;
 }
+form{
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  }
+
+  input{
+    min-width: 300px;
+  }
+
+  mat-card{
+    width: 80%;
+    min-width: 300px;
+    }

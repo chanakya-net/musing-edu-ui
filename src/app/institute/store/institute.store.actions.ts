@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Institute } from '../models/institute.model';
+import { Institute, Service } from '../models/institute.model';
 
 export enum InstituteActionsType {
   ADD_INSTITUTE = '[Institute] Add',
@@ -12,7 +12,16 @@ export enum InstituteActionsType {
 
   SELECT_INSTITUTE = '[Institute] Select',
   SELECT_INSTITUTE_SUCCESS = '[Institute] Select Success',
-  SELECT_INSTITUTE_FAIL = '[Institute] Select Fail'
+  SELECT_INSTITUTE_FAIL = '[Institute] Select Fail',
+
+  ADD_SERVICE = '[Institute] Add Service',
+  ADD_SERVICE_SUCCESS = '[Institute] Add Service Success',
+  ADD_SERVICE_FAIL = '[Institute] Add Service Fail',
+
+  SELECT_SERVICES = '[Institute] Select Services',
+  SELECT_SERVICES_SUCCESS = '[Institute] Select Service Success',
+  SELECT_SERVICES_FAIL = '[Institute] Select Service Fail',
+
 
 }
 
@@ -26,7 +35,7 @@ export class AddInstitute implements Action {
 export class AddInstituteSuccess implements Action {
   readonly type = InstituteActionsType.ADD_INSTITUTE_SUCCESS;
   constructor(
-    public payload: Institute
+    public payload: { institute: Institute, successMessage: string }
   ) { }
 }
 
@@ -46,7 +55,9 @@ export class UpdateInstitute implements Action {
 
 export class UpdateInstituteSuccess implements Action {
   readonly type = InstituteActionsType.UPDATE_INSTITUTE_SUCCESS;
-  constructor(public payload: Institute) { }
+  constructor(
+    public payload: { institute: Institute, successMessage: string }
+  ) { }
 }
 
 export class UpdateInstituteFail implements Action {
@@ -62,13 +73,52 @@ export class SelectInstitute implements Action {
 export class SelectInstituteSuccess implements Action {
   readonly type = InstituteActionsType.SELECT_INSTITUTE_SUCCESS;
   constructor(
-    public payload: Institute
+    public payload: { institute: Institute, successMessage: string }
   ) { }
 }
 
 export class SelectInstituteFail implements Action {
   readonly type = InstituteActionsType.SELECT_INSTITUTE_FAIL;
   constructor(public payload: string) { }
+}
+
+export class AddInstituteService implements Action {
+  readonly type = InstituteActionsType.ADD_SERVICE;
+  constructor(
+    public payload: { serviceData: Service }
+  ) { }
+}
+
+export class AddInstituteServiceSuccess implements Action {
+  readonly type = InstituteActionsType.ADD_SERVICE_SUCCESS;
+  constructor(
+    public payload: { serviceData: Service, successMessage: string }
+  ) { }
+}
+
+export class AddInstituteServiceFail implements Action {
+  readonly type = InstituteActionsType.ADD_SERVICE_FAIL;
+  constructor(
+    public payload: { errorMessage: string }
+  ) { }
+}
+
+export class SelectInstituteServices implements Action {
+  readonly type = InstituteActionsType.SELECT_SERVICES;
+}
+
+export class SelectInstituteServicesSuccess implements Action {
+  readonly type = InstituteActionsType.SELECT_SERVICES_SUCCESS;
+  constructor(
+    public payload: { servicesData: Service[], successMessage: string }
+  ) { }
+}
+
+export class SelectInstituteServicesFail implements Action {
+  readonly type = InstituteActionsType.SELECT_SERVICES_FAIL;
+  constructor(
+    public payload: { errorMessage: string }
+  ) { }
 }
 
 export type InstituteActions =
@@ -80,4 +130,10 @@ export type InstituteActions =
   | UpdateInstituteFail
   | SelectInstitute
   | SelectInstituteSuccess
-  | SelectInstituteFail;
+  | SelectInstituteFail
+  | AddInstituteService
+  | AddInstituteServiceFail
+  | AddInstituteServiceSuccess
+  | SelectInstituteServices
+  | SelectInstituteServicesFail
+  | SelectInstituteServicesSuccess;

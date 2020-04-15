@@ -1,7 +1,8 @@
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
-import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 import * as fromInstituteSelectors from '../store/institute.store.selector';
 import * as fromInstituteActions from '../store/institute.store.actions';
@@ -25,44 +26,69 @@ export class UpsertInstituteComponent implements OnInit {
 
   constructor(
     private store: Store<fromInstituteReducers.InstituteState>,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
+    this.createInputForm();
     this.store.dispatch(new fromInstituteActions.SelectInstitute());
     this.isRequestInProgress$ = this.store.select(fromInstituteSelectors.GetHttpRequestProgress);
     this.store.select(fromInstituteSelectors.GetCurrentInstitute).subscribe(data => {
       this.instituteData = data;
       if (data) {
-        this.createInputForm();
+        this.setFormData(data);
       }
-      console.log(this.instituteData);
     }
     );
+    this.store.select(fromInstituteSelectors.GetSuccessMessage).subscribe(data => {
+      if (data) {
+        this.openSnackBar(data, 'Ok', 'top');
+      }
 
+    });
   }
 
   createInputForm() {
-    console.log('creating form');
+    console.log('creating form institute');
     this.instituteForm = this.formBuilder.group(
       {
-        address: [this.instituteData.address, Validators.required],
-        city: [this.instituteData.city, Validators.required],
-        pin: [this.instituteData.pin, Validators.required],
-        contactNumbers: [this.instituteData.contactNumbers, Validators.required],
-        mailId: [this.instituteData.mailId, Validators.required],
-        website: [this.instituteData.website, Validators.required],
-        allowedGender: [this.instituteData.allowedGender.toString(), Validators.required]
+        address: [null, Validators.required],
+        city: [null, Validators.required],
+        pin: [null, Validators.required],
+        contactNumbers: [null, Validators.required],
+        mailId: [null, Validators.required],
+        website: [null, Validators.required],
+        allowedGender: [null, Validators.required]
       }
     );
   }
 
-  onSubmit() {
+  onSubmitInstitute() {
     const data = this.instituteForm.value;
     data.id = this.instituteData.id;
     data.name = this.instituteData.name;
     data.establishedOn = this.instituteData.establishedOn;
     this.store.dispatch(new fromInstituteActions.UpdateInstitute(data));
   }
+
+  private setFormData(data: Institute) {
+    this.instituteForm.get('address').setValue(data.address);
+    this.instituteForm.get('city').setValue(data.city);
+    this.instituteForm.get('pin').setValue(data.pin);
+    this.instituteForm.get('contactNumbers').setValue(data.contactNumbers);
+    this.instituteForm.get('mailId').setValue(data.mailId);
+    this.instituteForm.get('website').setValue(data.website);
+    this.instituteForm.get('allowedGender').setValue(data.allowedGender);
+  }
+
+  openSnackBar(message: string, action: string, position: MatSnackBarVerticalPosition = 'bottom') {
+    this.snackBar.open(message, action, {
+      duration: 5000,
+      verticalPosition: position,
+      panelClass: ['successPanel']
+    });
+  }
+
 
 }

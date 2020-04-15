@@ -1,8 +1,31 @@
 <div class="div-instituteServices-main">
+  <app-loading *ngIf="(isRequestInProgress$| async)"></app-loading>
   <div class="div-instituteServices-add">
-    <p>Component to add the service rendered</p>
+    <mat-card *ngIf="!(isRequestInProgress$| async)" tabindex=0 class="mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title>Service provided</mat-card-title>
+        <mat-card-subtitle>Add new service</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="instituteServicesFromGroup" (ngSubmit)="onSubmitServiceData()">
+          <mat-form-field>
+            <mat-label>Service Name</mat-label>
+            <input matInput id="serviceName" name="serviceName" placeholder="Please enter service name"
+              formControlName="serviceName">
+          </mat-form-field>
+          <button mat-raised-button color="accent" [disabled]="!instituteServicesFromGroup.valid"
+            type="submit">Add</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
   </div>
   <div class="div-instituteServices-display">
-    <p>List of service rendered will be displayed here</p>
+    <div>
+      <app-loading *ngIf="(isRequestInProgress$| async)"></app-loading>
+    </div>
+    <div *ngIf="!(isRequestInProgress$| async)">
+      <p>Under Construction</p>
+    </div>
+
   </div>
 </div>

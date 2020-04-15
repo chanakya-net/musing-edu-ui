@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Institute } from '../models/institute.model';
+import { Institute, Service } from '../models/institute.model';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -22,6 +22,13 @@ export class InstituteHttpService {
   }
   selectInstitute(): Observable<Institute> {
     return this.http.get<Institute>(environment.baseUrl + 'api/Institute');
+  }
+  addNewInstituteService(data: Service): Observable<Service> {
+    return this.http.post<Service>(environment.baseUrl + 'api/Institute/service', data);
+  }
+
+  selectAllInstituteServices(): Observable<Service[]> {
+    return this.http.get<Service[]>(environment.baseUrl + 'api/Institute/services');
   }
 
 }
