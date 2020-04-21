@@ -12,11 +12,12 @@ import { InstituteEffects } from './store/institute.store.effects';
 import { AppCommonModule } from '../app-common/app-common.module';
 import { MaterialModules } from '../material.module';
 import { InstituteServicesComponent } from './institute-services/institute-services.component';
+import { VendorComponent } from './vendor/vendor.component';
 
 
 
 @NgModule({
-  declarations: [SetupDisplayComponent, UpsertInstituteComponent, InstituteServicesComponent],
+  declarations: [SetupDisplayComponent, UpsertInstituteComponent, InstituteServicesComponent, VendorComponent],
   imports: [
     MaterialModules,
     CommonModule,

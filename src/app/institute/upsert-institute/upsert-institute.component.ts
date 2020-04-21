@@ -22,7 +22,7 @@ export class UpsertInstituteComponent implements OnInit {
   genders = AcceptedGender;
   instituteForm: FormGroup;
   isRequestInProgress$: Observable<boolean>;
-  instituteData: Institute;
+  instituteData = new Institute();
 
   constructor(
     private store: Store<fromInstituteReducers.InstituteState>,
@@ -37,7 +37,7 @@ export class UpsertInstituteComponent implements OnInit {
     this.store.select(fromInstituteSelectors.GetCurrentInstitute).subscribe(data => {
       this.instituteData = data;
       if (data) {
-        this.setFormData(data);
+        this.setFormData(this.instituteData);
       }
     }
     );

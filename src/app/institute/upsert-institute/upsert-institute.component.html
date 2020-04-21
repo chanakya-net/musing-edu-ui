@@ -2,7 +2,7 @@
   <app-loading *ngIf="(isRequestInProgress$|async)"></app-loading>
   <div *ngIf="!(isRequestInProgress$|async)" class="div-institute-container">
     <div class="div-institute-main">
-      <mat-card tabindex=0 class="mat-elevation-z8">
+      <mat-card *ngIf="instituteData" tabindex=0 class="mat-elevation-z8">
         <mat-card-header>
           <mat-card-title>{{instituteData.name}}</mat-card-title>
           <mat-card-subtitle>Established on:- {{instituteData.establishedOn | date:'MMM-yyyy'}}</mat-card-subtitle>
@@ -48,6 +48,7 @@
         <mat-card-actions>
         </mat-card-actions>
       </mat-card>
+      <div *ngIf="!instituteData">Unable to get the record from server.</div>
     </div>
     <div class="div-institute-logo">
       <mat-card>

@@ -9,3 +9,12 @@ export enum PersonGender {
   Female,
   Other
 }
+
+export enum ChargeType {
+  Daily = 1,
+  Week,
+  Month,
+  Year,
+  Onetime
+}
+
