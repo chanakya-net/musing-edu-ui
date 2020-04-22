@@ -6,11 +6,12 @@ import { HostelDashBoardComponent } from './hostel-dash-board/hostel-dash-board.
 import { HostelRoutingModule } from './hostel-routing.module';
 import { AppCommonModule } from '../app-common/app-common.module';
 import { MaterialModules } from '../material.module';
+import { ManageBuildingComponent } from './Building/manage-building/manage-building.component';
 
 
 
 @NgModule({
-  declarations: [HostelDashBoardComponent],
+  declarations: [HostelDashBoardComponent, ManageBuildingComponent],
   imports: [
     MaterialModules,
     CommonModule,

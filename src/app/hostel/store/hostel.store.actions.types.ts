@@ -1,0 +1,50 @@
+export enum HostelActionsType {
+  HOSTEL_GET_CURRENT = '[Hostel] Get Current Hostel',
+  HOSTEL_SET_CURRENT = '[Hostel] Set Current Hostel',
+  BUILDING_GET_CURRENT = '[Hostel] Get Current Building',
+  BUILDING_SET_CURRENT = '[Hostel] Set Current Building',
+  FLOOR_GET_CURRENT = '[Hostel] Get Current Floor',
+  FLOOR_SET_CURRENT = '[Hostel] Set Current Floor',
+
+  BUILDING_ADD_START = '[Hostel] Add New Building',
+  BUILDING_ADD_SUCCUSS = '[Hostel] Add Building Success ',
+  BUILDING_ADD_FAIL = '[Hostel] Add Building Fail',
+  BUILDING_UPDATE_START = '[Hostel] Update Building start',
+  BUILDING_UPDATE_SUCCESS = '[Hostel] Building Update Success',
+  BUILDING_UPDATE_FAIL = '[Hostel] Building Update Fail',
+  BUILDING_SELECT_START = '[Hostel] Building Select Start',
+  BUILDING_SELECT_SUCCESS = '[Hostel] Building Select Success',
+  BUILDING_SELECT_FAIL = '[Building] Building Select Fail',
+
+
+  FLOOR_ADD_START = '[Hostel] Add New Floor',
+  FLOOR_ADD_SUCCUSS = '[Hostel] Add Floor Success ',
+  FLOOR_ADD_FAIL = '[Hostel] Add Floor Fail',
+  FLOOR_UPDATE_START = '[Hostel] Update Floor start',
+  FLOOR_UPDATE_SUCCESS = '[Hostel] Update Floor Success',
+  FLOOR_UPDATE_FAIL = '[Hostel] Update Floor Fail',
+  FLOOR_SELECT_START = '[Hostel] Select Floor Start',
+  FLOOR_SELECT_SUCCESS = '[Hostel] Select Floor Success',
+  FLOOR_SELECT_FAIL = '[Hostel] Select Fail Fail',
+
+  ROOM_ADD_START = '[Hostel] Add New Room',
+  ROOM_ADD_SUCCUSS = '[Hostel] Add Room Success ',
+  ROOM_ADD_FAIL = '[Hostel] Add Room Fail',
+  ROOM_UPDATE_START = '[Hostel] Update Room start',
+  ROOM_UPDATE_SUCCESS = '[Hostel] Update Room Success',
+  ROOM_UPDATE_FAIL = '[Hostel] Update Room Fail',
+  ROOM_SELECT_START = '[Hostel] Select Room Start',
+  ROOM_SELECT_SUCCESS = '[Hostel] Select Room Success',
+  ROOM_SELECT_FAIL = '[HOSTEL] Select Room Fail',
+
+  BED_ADD_START = '[Hostel] Add New Bed',
+  BED_ADD_SUCCUSS = '[Hostel] Add Bed Success ',
+  BED_ADD_FAIL = '[Hostel] Add Bed Fail',
+  BED_UPDATE_START = '[Hostel] Update Bed start',
+  BED_UPDATE_SUCCESS = '[Hostel] Update Bed Success',
+  BED_UPDATE_FAIL = '[Hostel] Update Bed Fail',
+  BED_SELECT_START = '[Hostel] Select Bed Start',
+  BED_SELECT_SUCCESS = '[Hostel] Select Bed Success',
+  BED_SELECT_FAIL = '[HOSTEL] Select Bed Fail'
+
+}
