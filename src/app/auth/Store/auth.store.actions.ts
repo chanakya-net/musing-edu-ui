@@ -19,7 +19,7 @@ export class UserLogin implements Action {
 export class UserLoginSuccess implements Action {
   readonly type = AuthenticationActionsType.USER_LOGIN_SUCCESS;
   constructor(
-    public payload: LoggedInUser
+    public payload: { userDetails: LoggedInUser, isRedirect: boolean }
   ) { }
 }
 

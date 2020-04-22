@@ -9,38 +9,62 @@
   margin: 5px;
   display: flex;
   justify-content: space-around;
-  height: 30%;
+  height: 20%;
   width: 100%;
 }
 mat-card{
-  height: 100%;
   max-width: 18rem;
+  min-width: 12rem;
   margin: 5px;
   padding: 5px;
 }
 
 .mat-card-header{
   width: 100%;
-  background-color:#3f51b5;
-  color: white;
+  // background-color:#3f51b5;
+  // color: white;
+  align-content: center;
+  justify-content: center;
 }
 
 mat-card-content{
-  height: 60%;
+  width: 100%;
+  margin: 5px;
 }
 
 mat-card-footer{
   padding: 5px;
   margin: 7px;
 }
-
+mat-card-title{
+  margin: 5px;
+}
 .test-bg{
   display: flex;
   height: 65%;
   width: 100%;
 }
+
 canvas{
   display: flex;
   height: 100%;
   width: 100%;
+}
+
+.card-context{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+margin: 10px;
+}
+.number-txt{
+font-size: 3rem;
+color: darkgreen;
+}
+.string-text{
+  font-size: 1.5rem;
+}
+
+.span-space{
+  margin: 5px;
 }

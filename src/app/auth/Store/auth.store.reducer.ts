@@ -33,7 +33,7 @@ export function AuthReducer(state = InitialState, action: FromAuthActions.Authen
       return {
         ...state,
         isRequestInProgress: false,
-        loggedInUserDetails: action.payload,
+        loggedInUserDetails: action.payload.userDetails,
         userValidationData: null,
         errorMessage: null
       };

@@ -42,6 +42,7 @@ export class AuthenticationEffects {
     map(() => {
       const dataFromToken = this.tokenHandler.getUserDataFromToken();
       if (dataFromToken == null) {
+        this.router.navigate(['/login']);
         return { type: 'DUMMY' };
       } else {
         console.log('executing auto login');
@@ -55,7 +56,7 @@ export class AuthenticationEffects {
           userName: dataFromToken.userName,
           token: dataFromToken.token
         };
-        return new AuthenticationActions.UserLoginSuccess(loggedInUserData);
+        return new AuthenticationActions.UserLoginSuccess({ userDetails: loggedInUserData, isRedirect: false });
       }
     })
   );
@@ -65,8 +66,10 @@ export class AuthenticationEffects {
     ofType(AuthenticationActions.AuthenticationActionsType.USER_LOGIN_SUCCESS),
     tap((loggedInUserData: AuthenticationActions.UserLoginSuccess) => {
       if (loggedInUserData) {
-        this.tokenHandler.SaveUserToken(loggedInUserData);
-        this.router.navigate(['/dashboard']);
+        this.tokenHandler.SaveUserToken(loggedInUserData.payload.userDetails);
+        if (loggedInUserData.payload.isRedirect === true) {
+          this.router.navigate(['/dashboard']);
+        }
       }
     })
   );
@@ -81,7 +84,7 @@ export class AuthenticationEffects {
   );
 
   handleAuthenticationSuccess(loggedInUserData: LoggedInUser) {
-    return new AuthenticationActions.UserLoginSuccess(loggedInUserData);
+    return new AuthenticationActions.UserLoginSuccess({ userDetails: loggedInUserData, isRedirect: true });
   }
   handleAuthenticationFail(error: HttpResponse<any>) {
 
