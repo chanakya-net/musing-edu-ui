@@ -10,7 +10,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatCheckboxModule } from '@angular/Material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
@@ -20,7 +19,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
-    MatCheckboxModule,
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
@@ -50,7 +48,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDividerModule,
     MatGridListModule,
     MatDialogModule,
-    MatCheckboxModule,
     MatTableModule,
     MatFormFieldModule,
     MatRadioModule,
