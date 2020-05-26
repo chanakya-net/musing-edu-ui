@@ -1,0 +1,25 @@
+.main-area-building{
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.span-space{
+  margin: 5px;
+}
+
+input{
+  min-width: 300px;
+}
+
+mat-card{
+  min-width: 300px;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    }
