@@ -11,7 +11,11 @@
           <form [formGroup]="">
             <mat-form-field>
               <mat-label>Select Hostel</mat-label>
-              <input matInput id="hostelName" name="hostelName" placeholder="Please select hostel.">
+              <mat-select cdkFocusInitial>
+                <mat-option value="1">Hostel 1</mat-option>
+                <mat-option value="2">Hostel 2</mat-option>
+                <mat-option value="3">Hostel 3</mat-option>
+              </mat-select>
             </mat-form-field>
             <mat-form-field>
               <mat-label>Building Name</mat-label>
@@ -29,6 +33,6 @@
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-raised-button color="accent" cdkFocusInitial>Add</button>
+  <button mat-raised-button color="accent">Add</button>
   <button mat-raised-button color="warn" [mat-dialog-close]="true">Close</button>
 </mat-dialog-actions>
