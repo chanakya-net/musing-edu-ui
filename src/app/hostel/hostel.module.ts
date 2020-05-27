@@ -7,11 +7,13 @@ import { HostelRoutingModule } from './hostel-routing.module';
 import { AppCommonModule } from '../app-common/app-common.module';
 import { MaterialModules } from '../material.module';
 import { AddNewBuildingComponent } from './building/add-new-building/add-new-building.component';
+import { AddNewRoomComponent } from './room/add-new-room/add-new-room.component';
+import { AddNewBedComponent } from './bed/add-new-bed/add-new-bed.component';
 
 
 
 @NgModule({
-  declarations: [HostelDashBoardComponent, AddNewBuildingComponent],
+  declarations: [HostelDashBoardComponent, AddNewBuildingComponent, AddNewRoomComponent, AddNewBedComponent],
   imports: [
     MaterialModules,
     CommonModule,
