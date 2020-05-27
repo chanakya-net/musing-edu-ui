@@ -3,6 +3,8 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewBuildingComponent } from '../building/add-new-building/add-new-building.component';
+import { AddNewRoomComponent } from '../room/add-new-room/add-new-room.component';
+import { AddNewBedComponent } from '../bed/add-new-bed/add-new-bed.component';
 
 @Component({
   selector: 'app-hostel-dash-board',
@@ -30,8 +32,22 @@ export class HostelDashBoardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog() {
+  AddBuilding() {
     const dialogRef = this.dialog.open(AddNewBuildingComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  AddRoom() {
+    const dialogRef = this.dialog.open(AddNewRoomComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  AddBed() {
+    const dialogRef = this.dialog.open(AddNewBedComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

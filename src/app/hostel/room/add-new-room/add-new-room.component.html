@@ -1,1 +1,45 @@
-<p>add-new-room works!</p>
+<mat-dialog-content>
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title><i class="fas fa-person-booth"></i>
+          <span class="span-space">Add Room</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <form [formGroup]="">
+            <mat-form-field>
+              <mat-label>Select Hostel</mat-label>
+              <mat-select cdkFocusInitial>
+                <mat-option value="1">Hostel 1</mat-option>
+                <mat-option value="2">Hostel 2</mat-option>
+                <mat-option value="3">Hostel 3</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Select Building</mat-label>
+              <mat-select cdkFocusInitial>
+                <mat-option value="1">Building 1</mat-option>
+                <mat-option value="2">Building 2</mat-option>
+                <mat-option value="3">Building 3</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Room Name</mat-label>
+              <input matInput id="buildingName" name="BuildingName" placeholder="Please Enter room name.">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Comment</mat-label>
+              <input matInput id="roomComment" name="roomComment" placeholder="Please Enter comment if any.">
+            </mat-form-field>
+          </form>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="accent">Add</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true">Close</button>
+</mat-dialog-actions>
