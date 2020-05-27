@@ -6,7 +6,7 @@
         <app-add-new-hostel id="test"></app-add-new-hostel>
       </div>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step>
@@ -15,7 +15,7 @@
         <app-add-new-building></app-add-new-building>
       </div>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step>
@@ -24,7 +24,7 @@
         <app-add-new-room></app-add-new-room>
       </div>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step>
@@ -32,10 +32,11 @@
         <ng-template matStepLabel>Bed</ng-template>
         <app-add-new-bed></app-add-new-bed>
       </div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
+      <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
     </mat-step>
-  </mat-horizontal-stepper>
 
+  </mat-horizontal-stepper>
 </mat-dialog-content>
+<mat-dialog-actions align="end">
+
+</mat-dialog-actions>
