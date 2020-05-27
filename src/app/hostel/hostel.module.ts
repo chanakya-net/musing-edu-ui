@@ -6,13 +6,12 @@ import { HostelDashBoardComponent } from './hostel-dash-board/hostel-dash-board.
 import { HostelRoutingModule } from './hostel-routing.module';
 import { AppCommonModule } from '../app-common/app-common.module';
 import { MaterialModules } from '../material.module';
-import { ManageBuildingComponent } from './Building/manage-building/manage-building.component';
 import { AddNewBuildingComponent } from './building/add-new-building/add-new-building.component';
 
 
 
 @NgModule({
-  declarations: [HostelDashBoardComponent, ManageBuildingComponent, AddNewBuildingComponent],
+  declarations: [HostelDashBoardComponent, AddNewBuildingComponent],
   imports: [
     MaterialModules,
     CommonModule,
@@ -20,6 +19,6 @@ import { AddNewBuildingComponent } from './building/add-new-building/add-new-bui
     CommonModule,
     AppCommonModule,
     ChartsModule,
-  ]
+  ],
 })
 export class HostelModule { }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { MatDialog } from '@angular/material/dialog';
-import { ManageBuildingComponent } from '../Building/manage-building/manage-building.component';
 import { AddNewBuildingComponent } from '../building/add-new-building/add-new-building.component';
 
 @Component({
@@ -33,7 +32,6 @@ export class HostelDashBoardComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(AddNewBuildingComponent);
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
