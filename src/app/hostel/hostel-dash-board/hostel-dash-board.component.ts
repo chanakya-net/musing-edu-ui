@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddNewBuildingComponent } from '../building/add-new-building/add-new-building.component';
 import { AddNewRoomComponent } from '../room/add-new-room/add-new-room.component';
 import { AddNewBedComponent } from '../bed/add-new-bed/add-new-bed.component';
+import { SetupHostelComponent } from '../setup-hostel/setup-hostel.component';
 
 @Component({
   selector: 'app-hostel-dash-board',
@@ -48,6 +49,13 @@ export class HostelDashBoardComponent implements OnInit {
 
   AddBed() {
     const dialogRef = this.dialog.open(AddNewBedComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  HostelSetup() {
+    const dialogRef = this.dialog.open(SetupHostelComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

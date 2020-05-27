@@ -1,0 +1,41 @@
+<mat-dialog-content>
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Hostel Setup</ng-template>
+        <app-add-new-hostel id="test"></app-add-new-hostel>
+      </div>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Building</ng-template>
+        <app-add-new-building></app-add-new-building>
+      </div>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Room</ng-template>
+        <app-add-new-room></app-add-new-room>
+      </div>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div>
+        <ng-template matStepLabel>Bed</ng-template>
+        <app-add-new-bed></app-add-new-bed>
+      </div>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</mat-dialog-content>

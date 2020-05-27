@@ -9,11 +9,13 @@ import { MaterialModules } from '../material.module';
 import { AddNewBuildingComponent } from './building/add-new-building/add-new-building.component';
 import { AddNewRoomComponent } from './room/add-new-room/add-new-room.component';
 import { AddNewBedComponent } from './bed/add-new-bed/add-new-bed.component';
+import { SetupHostelComponent } from './setup-hostel/setup-hostel.component';
+import { AddNewHostelComponent } from './add-new-hostel/add-new-hostel.component';
 
 
 
 @NgModule({
-  declarations: [HostelDashBoardComponent, AddNewBuildingComponent, AddNewRoomComponent, AddNewBedComponent],
+  declarations: [HostelDashBoardComponent, AddNewBuildingComponent, AddNewRoomComponent, AddNewBedComponent, SetupHostelComponent, AddNewHostelComponent],
   imports: [
     MaterialModules,
     CommonModule,

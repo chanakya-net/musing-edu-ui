@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatStepperModule
   ],
   exports: [
     MatIconModule,
@@ -52,7 +54,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatStepperModule
   ],
 })
 export class MaterialModules { }
