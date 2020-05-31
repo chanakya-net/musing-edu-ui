@@ -1,21 +1,22 @@
 <mat-dialog-content>
   <mat-horizontal-stepper linear #stepper>
-    <mat-step>
+    <mat-step [completed]="false" [stepControl]="addHostelFormGroup">
       <div>
         <ng-template matStepLabel>Hostel Setup</ng-template>
-        <app-add-new-hostel id="test"></app-add-new-hostel>
+        <app-add-new-hostel id="test" (addHostelFormOutput)="onNotifyAddHotelForm($event)"></app-add-new-hostel>
       </div>
       <div>
         <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="false" [stepControl]="addBuildingFromGroup">
       <div>
         <ng-template matStepLabel>Building</ng-template>
-        <app-add-new-building></app-add-new-building>
+        <app-add-new-building (buildingFromOutPut)="onNotifyAddBuildingForm($event)"></app-add-new-building>
       </div>
       <div>
         <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
+        <button type="button" mat-raised-button color="primary" matStepperPrevious>Previous</button>
       </div>
     </mat-step>
     <mat-step>
@@ -25,6 +26,7 @@
       </div>
       <div>
         <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
+        <button type="button" mat-raised-button color="primary" matStepperPrevious>Previous</button>
       </div>
     </mat-step>
     <mat-step>
@@ -32,9 +34,10 @@
         <ng-template matStepLabel>Bed</ng-template>
         <app-add-new-bed></app-add-new-bed>
       </div>
-      <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
+      <div>
+        <button type="button" mat-raised-button color="primary" matStepperPrevious>Previous</button>
+      </div>
     </mat-step>
-
   </mat-horizontal-stepper>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
