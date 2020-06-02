@@ -3,15 +3,14 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoggedInUser } from '../models/auth.models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class AuthTokenService {
   TOKEN_KEY = 'JWT_TOKEN';
   private tokenHelper = new JwtHelperService();
-  constructor() { }
+  constructor() {}
 
-  SaveUserToken(userToken) {
+  SaveUserToken(userToken: any) {
     localStorage.setItem(this.TOKEN_KEY, JSON.stringify(userToken));
   }
 
@@ -26,9 +25,9 @@ export class AuthTokenService {
         mailId: userData.mailId,
         contactNumber: userData.contactNumber,
         roles: userData.roles,
-        token: userData.token
+        token: userData.token,
       };
-      return (data);
+      return data;
     } else {
       return null;
     }

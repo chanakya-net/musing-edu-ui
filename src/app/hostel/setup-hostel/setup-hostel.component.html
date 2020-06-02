@@ -1,45 +1,78 @@
 <mat-dialog-content>
   <mat-horizontal-stepper linear #stepper>
-    <mat-step [completed]="false" [stepControl]="addHostelFormGroup">
+    <mat-step [completed]="false" [stepControl]="addHostelFromGroup">
       <div>
         <ng-template matStepLabel>Hostel Setup</ng-template>
-        <app-add-new-hostel id="test" (addHostelFormOutput)="onNotifyAddHotelForm($event)"></app-add-new-hostel>
+        <app-add-new-hostel
+          (addHostelFormOutput)="onNotifyAddHotelForm($event)"
+        ></app-add-new-hostel>
       </div>
       <div>
-        <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
+        <button type="button" mat-raised-button color="primary" matStepperNext>
+          Next
+        </button>
       </div>
     </mat-step>
     <mat-step [completed]="false" [stepControl]="addBuildingFromGroup">
       <div>
         <ng-template matStepLabel>Building</ng-template>
-        <app-add-new-building (buildingFromOutPut)="onNotifyAddBuildingForm($event)"></app-add-new-building>
+        <app-add-new-building
+          (buildingFromOutPut)="onNotifyAddBuildingForm($event)"
+        ></app-add-new-building>
       </div>
       <div>
-        <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
-        <button type="button" mat-raised-button color="primary" matStepperPrevious>Previous</button>
+        <button type="button" mat-raised-button color="primary" matStepperNext>
+          Next
+        </button>
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          matStepperPrevious
+        >
+          Previous
+        </button>
       </div>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="false" [stepControl]="addRoomFromGroup">
       <div>
         <ng-template matStepLabel>Room</ng-template>
-        <app-add-new-room></app-add-new-room>
+        <app-add-new-room
+          (addRoomFormOutput)="onNotifyAddRoom($event)"
+        ></app-add-new-room>
       </div>
       <div>
-        <button type="button" mat-raised-button color="primary" matStepperNext>Next</button>
-        <button type="button" mat-raised-button color="primary" matStepperPrevious>Previous</button>
+        <button type="button" mat-raised-button color="primary" matStepperNext>
+          Next
+        </button>
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          matStepperPrevious
+        >
+          Previous
+        </button>
       </div>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="false" [stepControl]="addBedFromGroup">
       <div>
         <ng-template matStepLabel>Bed</ng-template>
-        <app-add-new-bed></app-add-new-bed>
+        <app-add-new-bed
+          (addBedFromOutput)="onNotifyAddBed($event)"
+        ></app-add-new-bed>
       </div>
       <div>
-        <button type="button" mat-raised-button color="primary" matStepperPrevious>Previous</button>
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          matStepperPrevious
+        >
+          Previous
+        </button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-
-</mat-dialog-actions>
+<mat-dialog-actions align="end"> </mat-dialog-actions>

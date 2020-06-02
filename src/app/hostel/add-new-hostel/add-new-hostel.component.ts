@@ -5,15 +5,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-add-new-hostel',
   templateUrl: './add-new-hostel.component.html',
-  styleUrls: ['./add-new-hostel.component.scss']
+  styleUrls: ['./add-new-hostel.component.scss'],
 })
 export class AddNewHostelComponent implements OnInit {
   addHostelForm: FormGroup;
-  @Output() addHostelFormOutput: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() addHostelFormOutput: EventEmitter<FormGroup> = new EventEmitter<
+    FormGroup
+  >();
 
-  constructor(private formBuilder: FormBuilder) {
-
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.createInputForm();
@@ -22,14 +22,10 @@ export class AddNewHostelComponent implements OnInit {
 
   createInputForm() {
     console.log('creating form institute');
-    this.addHostelForm = this.formBuilder.group(
-      {
-        address: [null],
-        city: [null],
-        pin: [null],
-      }
-    );
+    this.addHostelForm = this.formBuilder.group({
+      address: [null],
+      city: [null],
+      pin: [null],
+    });
   }
-
-
 }

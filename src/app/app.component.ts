@@ -10,20 +10,18 @@ import * as fromAuthenticationActions from './auth/Store/auth.store.actions';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'musing-edu';
 
-  isLoggedIn$: Observable<LoggedInUser>;
+  isLoggedIn$: Observable<LoggedInUser> = new Observable<LoggedInUser>();
 
-  constructor(
-    private store: Store<fromApplicationStore.GlobalStore>
-  ) {
-
-  }
+  constructor(private store: Store<fromApplicationStore.GlobalStore>) {}
   ngOnInit() {
-    this.isLoggedIn$ = this.store.select(fromAuthenticationSelector.getLoggedInUser);
+    this.isLoggedIn$ = this.store.select(
+      fromAuthenticationSelector.getLoggedInUser
+    );
     this.store.dispatch(new fromAuthenticationActions.UserAutomaticLogIn());
   }
 }
