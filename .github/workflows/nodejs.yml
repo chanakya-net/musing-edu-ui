@@ -9,10 +9,7 @@ on:
       - master
   pull_request:
     branches:
-      - master
-
-name: Angular Build
-
+      - masterS
 jobs:
   build:
     runs-on: windows-latest
