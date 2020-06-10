@@ -9,7 +9,8 @@
   <div class="hostel-content">
     <mat-card class="mat-elevation-z8">
       <mat-card-header>
-        <mat-card-title><i class="fas fa-school icon-space"></i>
+        <mat-card-title
+          ><i class="fas fa-school icon-space"></i>
           <span class="span-space">Hostel</span>
         </mat-card-title>
       </mat-card-header>
@@ -20,8 +21,14 @@
         </div>
       </mat-card-content>
       <mat-card-footer>
-        <button mat-raised-button color="accent" matTooltip="Setup Hotel" (click)="HostelSetup()">
-          <i class="fas fa-hammer"></i></button>
+        <button
+          mat-raised-button
+          color="accent"
+          matTooltip="Setup Hotel"
+          (click)="HostelSetup()"
+        >
+          <i class="fas fa-hammer"></i>
+        </button>
       </mat-card-footer>
     </mat-card>
     <mat-card class="mat-elevation-z8">
@@ -38,8 +45,14 @@
         </div>
       </mat-card-content>
       <mat-card-footer>
-        <button mat-raised-button color="accent" matTooltip="Add Building" (click)="AddBuilding()">
-          <i class="fas fa-plus"></i></button>
+        <button
+          mat-raised-button
+          color="accent"
+          matTooltip="Add Building"
+          (click)="AddBuilding()"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
       </mat-card-footer>
     </mat-card>
     <mat-card class="mat-elevation-z8">
@@ -56,8 +69,14 @@
         </div>
       </mat-card-content>
       <mat-card-footer>
-        <button mat-raised-button color="accent" matTooltip="Add room" (click)="AddRoom()">
-          <i class="fas fa-plus"></i></button>
+        <button
+          mat-raised-button
+          color="accent"
+          matTooltip="Add room"
+          (click)="AddRoom()"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
       </mat-card-footer>
     </mat-card>
     <mat-card class="mat-elevation-z8">
@@ -74,14 +93,27 @@
         </div>
       </mat-card-content>
       <mat-card-footer>
-        <button mat-raised-button color="accent" matTooltip="Add bed" (click)="AddBed()">
-          <i class="fas fa-plus"></i></button>
+        <button
+          mat-raised-button
+          color="accent"
+          matTooltip="Add bed"
+          (click)="AddBed()"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
       </mat-card-footer>
     </mat-card>
   </div>
   <div class="test-bg">
-    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-      [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+    <canvas
+      baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType"
+    >
     </canvas>
   </div>
 </div>

@@ -2,29 +2,109 @@
   <div>
     <mat-card>
       <mat-card-header>
-        <mat-card-title><i class="fas fa-building"></i>
+        <mat-card-title
+          ><i class="fas fa-building"></i>
           <span class="span-space">Add Building</span>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <div>
-          <form [formGroup]="">
+          <form [formGroup]="buildingFromGroup">
             <mat-form-field>
               <mat-label>Select Hostel</mat-label>
-              <mat-select cdkFocusInitial>
+              <mat-select>
                 <mat-option value="1">Hostel 1</mat-option>
                 <mat-option value="2">Hostel 2</mat-option>
                 <mat-option value="3">Hostel 3</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field>
+              <mat-label>Allowed Gender</mat-label>
+              <mat-select>
+                <mat-option value="1">Male</mat-option>
+                <mat-option value="2">Female</mat-option>
+                <mat-option value="3">All</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
               <mat-label>Building Name</mat-label>
-              <input matInput id="buildingName" name="BuildingName" placeholder="Please Enter building name.">
+              <input
+                matInput
+                id="buildingName"
+                name="BuildingName"
+                placeholder="Please Enter building name."
+                formControlName="name"
+              />
             </mat-form-field>
             <mat-form-field>
               <mat-label>Building Address</mat-label>
-              <input matInput id="buildingAddress" name="buildingAddress"
-                placeholder="Please Enter building Address and Pin code.">
+              <input
+                matInput
+                id="buildingAddress"
+                name="buildingAddress"
+                placeholder="Please Enter building Address and Pin code."
+                formControlName="address"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>City</mat-label>
+              <input
+                matInput
+                id="city"
+                name="city"
+                placeholder="Please enter city."
+                formControlName="city"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Pin</mat-label>
+              <input
+                matInput
+                id="pin"
+                name="pin"
+                placeholder="Please enter pin code."
+                formControlName="pin"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>State</mat-label>
+              <input
+                matInput
+                is="state"
+                name="state"
+                placeholder="Please enter state."
+                formControlName="state"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Country</mat-label>
+              <input
+                matInput
+                id="country"
+                name="country"
+                placeholder="Please enter country."
+                formControlName="country"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Contact number</mat-label>
+              <input
+                matInput
+                id="contactNumber"
+                name="contactNumber"
+                placeholder="Please enter contact number."
+                formControlName="contactNumber"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                id="email"
+                name="email"
+                placeholder="Please enter email."
+                formControlName="email"
+              />
             </mat-form-field>
           </form>
         </div>
@@ -33,6 +113,14 @@
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-raised-button color="accent">Add</button>
-  <button mat-raised-button color="warn" [mat-dialog-close]="true">Close</button>
+  <button
+    mat-raised-button
+    color="accent"
+    [disabled]="!buildingFromGroup.valid"
+  >
+    Add
+  </button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true">
+    Close
+  </button>
 </mat-dialog-actions>

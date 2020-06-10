@@ -1,4 +1,4 @@
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -19,6 +19,11 @@ export class AddNewBedComponent implements OnInit {
   }
 
   createAddBedForm() {
-    this.addBedFormGroup = this.fromBuilder.group({});
+    this.addBedFormGroup = this.fromBuilder.group({
+      hostelName: [null, Validators.required],
+      buildingName: [null, Validators.required],
+      roomName: [null, Validators.required],
+      bedName: [null, Validators.required],
+    });
   }
 }

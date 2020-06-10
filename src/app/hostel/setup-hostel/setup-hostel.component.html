@@ -8,7 +8,13 @@
         ></app-add-new-hostel>
       </div>
       <div>
-        <button type="button" mat-raised-button color="primary" matStepperNext>
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          [disabled]="!addHostelFromGroup.valid"
+          matStepperNext
+        >
           Next
         </button>
       </div>

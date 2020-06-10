@@ -2,7 +2,8 @@
   <div>
     <mat-card>
       <mat-card-header>
-        <mat-card-title><i class="fas fa-bed"></i>
+        <mat-card-title
+          ><i class="fas fa-bed"></i>
           <span class="span-space">Add Bed</span>
         </mat-card-title>
       </mat-card-header>
@@ -11,7 +12,7 @@
           <form [formGroup]="">
             <mat-form-field>
               <mat-label>Select Hostel</mat-label>
-              <mat-select cdkFocusInitial>
+              <mat-select>
                 <mat-option value="1">Hostel 1</mat-option>
                 <mat-option value="2">Hostel 2</mat-option>
                 <mat-option value="3">Hostel 3</mat-option>
@@ -19,7 +20,7 @@
             </mat-form-field>
             <mat-form-field>
               <mat-label>Select Building</mat-label>
-              <mat-select cdkFocusInitial>
+              <mat-select>
                 <mat-option value="1">Building 1</mat-option>
                 <mat-option value="2">Building 2</mat-option>
                 <mat-option value="3">Building 3</mat-option>
@@ -27,7 +28,7 @@
             </mat-form-field>
             <mat-form-field>
               <mat-label>Select Room</mat-label>
-              <mat-select cdkFocusInitial>
+              <mat-select>
                 <mat-option value="1">Room 1</mat-option>
                 <mat-option value="2">Room 2</mat-option>
                 <mat-option value="3">Room 3</mat-option>
@@ -35,11 +36,21 @@
             </mat-form-field>
             <mat-form-field>
               <mat-label>Bed Name</mat-label>
-              <input matInput id="bedName" name="bedName" placeholder="Please Enter bed name/ID.">
+              <input
+                matInput
+                id="bedName"
+                name="bedName"
+                placeholder="Please Enter bed name/ID."
+              />
             </mat-form-field>
             <mat-form-field>
               <mat-label>Comment</mat-label>
-              <input matInput id="roomComment" name="roomComment" placeholder="Please Enter comment if any.">
+              <input
+                matInput
+                id="roomComment"
+                name="roomComment"
+                placeholder="Please Enter comment if any."
+              />
             </mat-form-field>
           </form>
         </div>
@@ -49,5 +60,7 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button color="accent">Add</button>
-  <button mat-raised-button color="warn" [mat-dialog-close]="true">Close</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true">
+    Close
+  </button>
 </mat-dialog-actions>

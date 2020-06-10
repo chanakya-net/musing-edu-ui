@@ -1,5 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  OnChanges,
+} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -7,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './add-new-hostel.component.html',
   styleUrls: ['./add-new-hostel.component.scss'],
 })
-export class AddNewHostelComponent implements OnInit {
+export class AddNewHostelComponent implements OnInit, OnChanges {
   addHostelForm: FormGroup;
   @Output() addHostelFormOutput: EventEmitter<FormGroup> = new EventEmitter<
     FormGroup
@@ -23,9 +29,18 @@ export class AddNewHostelComponent implements OnInit {
   createInputForm() {
     console.log('creating form institute');
     this.addHostelForm = this.formBuilder.group({
-      address: [null],
-      city: [null],
-      pin: [null],
+      name: [null, Validators.required],
+      address: [null, Validators.required],
+      city: [null, Validators.required],
+      pin: [null, Validators.required],
+      state: [null, Validators.required],
+      country: [null, Validators.required],
+      contactNumber: [null, Validators.required],
+      email: [null],
     });
+  }
+
+  ngOnChanges() {
+    this.addHostelFormOutput.emit(this.addHostelForm);
   }
 }

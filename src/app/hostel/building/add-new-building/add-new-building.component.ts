@@ -1,4 +1,4 @@
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -8,9 +8,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AddNewBuildingComponent implements OnInit {
   buildingFromGroup: FormGroup;
-  @Output() buildingFromOutPut: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() buildingFromOutPut: EventEmitter<FormGroup> = new EventEmitter<
+    FormGroup
+  >();
 
-  constructor(private fromBuilder: FormBuilder) { }
+  constructor(private fromBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.createBuildingForm();
@@ -19,13 +21,16 @@ export class AddNewBuildingComponent implements OnInit {
 
   createBuildingForm() {
     this.buildingFromGroup = this.fromBuilder.group({
-      address: [null],
-      city: [null],
-      pin: [null],
-      contactNumbers: [null],
-      mailId: [null],
-      website: [null],
-      allowedGender: [null],
+      hostelName: [null],
+      name: [null, Validators.required],
+      address: [null, Validators.required],
+      city: [null, Validators.required],
+      pin: [null, Validators.required],
+      state: [null, Validators.required],
+      country: [null, Validators.required],
+      contactNumber: [null, Validators.required],
+      email: [null, Validators.required],
+      genderAllowed: [null],
     });
   }
 }
