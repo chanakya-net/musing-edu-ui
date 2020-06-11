@@ -1,19 +1,22 @@
-.span-space{
+.span-space {
   margin: 10px;
 }
 
-input{
+input {
   min-width: 300px;
 }
 
-mat-card{
+mat-card {
   min-width: 300px;
   margin: 5px;
-  }
+}
 
-  form{
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-    }
+form {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
 
+mat-dialog-content {
+  width: 40rem;
+}
