@@ -1,10 +1,8 @@
 export enum HostelActionsType {
-  HOSTEL_GET_CURRENT = '[Hostel] Get Current Hostel',
-  HOSTEL_SET_CURRENT = '[Hostel] Set Current Hostel',
-  BUILDING_GET_CURRENT = '[Hostel] Get Current Building',
-  BUILDING_SET_CURRENT = '[Hostel] Set Current Building',
-  FLOOR_GET_CURRENT = '[Hostel] Get Current Floor',
-  FLOOR_SET_CURRENT = '[Hostel] Set Current Floor',
+  HOSTEL_SELECT_BY_ID = '[Hostel] Get Hostel By Id',
+  HOSTEL_GET_ALL = '[Hostel] Get All',
+  HOSTEL_ADD = '[Hostel] Add New',
+  HOSTEL_SELECT_BY_NAME = '[Hostel] Get Hostel By Name',
 
   BUILDING_ADD_START = '[Hostel] Add New Building',
   BUILDING_ADD_SUCCUSS = '[Hostel] Add Building Success ',
@@ -15,7 +13,6 @@ export enum HostelActionsType {
   BUILDING_SELECT_START = '[Hostel] Building Select Start',
   BUILDING_SELECT_SUCCESS = '[Hostel] Building Select Success',
   BUILDING_SELECT_FAIL = '[Building] Building Select Fail',
-
 
   FLOOR_ADD_START = '[Hostel] Add New Floor',
   FLOOR_ADD_SUCCUSS = '[Hostel] Add Floor Success ',
@@ -45,6 +42,5 @@ export enum HostelActionsType {
   BED_UPDATE_FAIL = '[Hostel] Update Bed Fail',
   BED_SELECT_START = '[Hostel] Select Bed Start',
   BED_SELECT_SUCCESS = '[Hostel] Select Bed Success',
-  BED_SELECT_FAIL = '[HOSTEL] Select Bed Fail'
-
+  BED_SELECT_FAIL = '[HOSTEL] Select Bed Fail',
 }
