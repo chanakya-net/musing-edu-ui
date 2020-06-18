@@ -1,4 +1,6 @@
+import { initialState } from './../store/institute.store.reduces';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 
 import { SetupDisplayComponent } from './setup-display.component';
 
@@ -9,6 +11,7 @@ describe('SetupDisplayComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SetupDisplayComponent],
+      providers: [provideMockStore({ initialState })],
     }).compileComponents();
   }));
 
