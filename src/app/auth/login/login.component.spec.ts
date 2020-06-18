@@ -17,7 +17,7 @@ import * as fromAuthenticationSelector from '../Store/auth.store.index';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 
-describe('LoginComponent', () => {
+describe('Login Component Tests', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let mockStore: MockStore;
@@ -62,8 +62,11 @@ describe('LoginComponent', () => {
     expect(testElement).toBeTruthy();
   });
 
+  //nativeNode.innerHTML
   it('should contain mat card title', () => {
     const testElement = fixture.debugElement.query(By.css('mat-card-title'));
-    expect(testElement).toBeTruthy();
+    expect(
+      (testElement.nativeNode.innerHTML = 'User Authentication')
+    ).toBeTruthy();
   });
 });
